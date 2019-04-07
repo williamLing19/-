@@ -1,0 +1,113 @@
+@main-color: #006699;
+.df() {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+h1,h2,h3,h4,h5 {
+    margin: 0;
+}
+html {
+    font-size: 26.6667vw;
+}
+body {
+    // background-color: #ccc;
+    font-size: .14rem;
+    line-height: .14rem;
+    height: 100vh;
+   display: flex;
+   flex-direction: column;
+}
+img  {
+    vertical-align: middle;
+}
+#header {
+    background-color: @main-color;
+    display: flex;
+    .left {
+        width: .45rem;
+        height: .45rem;
+        a {
+            color: #fff;
+            height: .45rem;
+            .df();
+        }
+    }
+    .center {
+        flex: 1;
+        h4 {
+            color:#fff;
+            font-weight: normal;
+            height: 100%;
+            .df();
+        }
+        form {
+            padding-top: .05rem;
+
+            input {
+                background-color: #fff;
+                height: 35px;
+                text-align: left;
+                font-size: .14rem;
+                margin-bottom: 0;
+            }
+        }
+    }
+    .right {
+        width: .45rem;
+        height: .45rem;
+        a {
+            color:#fff;
+            .df();
+            height: 100%;
+            i {
+                color:#fff;
+            }
+        }
+    }
+}
+// 主体部分公共样式
+#main {
+    flex: 1;
+    overflow: hidden;
+
+    // 1. 给父元素比如main设置相对定位
+    // position: relative;
+    // 区域滚动的父容器
+    .mui-scroll-wrapper {
+        // 默认设置了绝对定位所以飘了
+        // 2. 给自己 区域滚动父容器设置相对定位 但是默认没有高度 设置成父元素一样高 （推荐使用第二张方式在哪里滚动都通用的）
+        // position: absolute;
+        position: relative;
+        // 手动设置高度和父元素一样
+        height: 100%;
+        // 区域滚动子容器 高度是auto的
+        // .mui-scroll{
+
+        // }
+    }
+}
+
+#footer {
+    height: .45rem;
+    background-color: @main-color;
+    .mui-row {
+        >div {
+            a {
+                .df();
+                height: .45rem;
+                flex-direction: column;
+                color:#fff;
+                i {
+
+                }
+                span {
+
+                }
+                &.active {
+                    color:#ffa500;
+                }
+            }
+        }
+    }
+}
