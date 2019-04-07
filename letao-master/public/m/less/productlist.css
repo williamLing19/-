@@ -115,3 +115,36 @@ img {
 #footer .mui-row > div a.active {
   color: #ffa500;
 }
+#main .mui-card .mui-card-header a {
+  color: #666;
+  font-size: .14rem;
+}
+#main .mui-card .mui-card-header a.active {
+  color: red;
+}
+#main .mui-card .mui-card-content .mui-row > div:nth-child(odd) {
+  padding-right: .05rem;
+}
+#main .mui-card .mui-card-content .mui-row > div:nth-child(even) {
+  padding-left: .05rem;
+}
+#main .mui-card .mui-card-content .mui-row > div .product {
+  border: 1px solid #ccc;
+  text-align: center;
+  margin-top: .1rem;
+  padding-bottom: .1rem;
+}
+#main .mui-card .mui-card-content .mui-row > div .product img {
+  width: 100%;
+}
+#main .mui-card .mui-card-content .mui-row > div .product .product-name {
+  line-height: .18rem;
+  height: .36rem;
+  overflow: hidden;
+}
+#main .mui-card .mui-card-content .mui-row > div .product .product-price span {
+  color: red;
+}
+#main .mui-card .mui-card-content .mui-row > div .product .product-price del {
+  color: #ccc;
+}

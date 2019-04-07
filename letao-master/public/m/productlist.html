@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <!-- 添加视口 -->
+    <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>自写的乐淘移动端主页</title>
+    <!-- 1. 也要使用一个UI框架 叫MUI 像bootstrap一样引包  引入mui.css -->
+    <link rel="stylesheet" href="./lib/mui/css/mui.css">
+    <!-- 2. 引入font-awesome字体图标库 -->
+    <link rel="stylesheet" href="./lib/fontAwesome/css/font-awesome.css">
+    <!-- 3. 引入首页自己的css文件 -->
+    <link rel="stylesheet" href="./less/productlist.css">
+</head>
+
+<body>
+    <!-- 公共的头部区域 -->
+    <header id="header">
+        <div class="left">
+            <a href="#" class="fa fa-arrow-left"></a>
+        </div>
+        <div class="center">
+            <h4>商品列表</h4>
+        </div>
+        <div class="right">
+
+        </div>
+    </header>
+    <!-- 主体内容 -->
+    <main id="main">
+        <!-- //将整个内容放到下拉刷新插件里面 -->
+        <div id="pullrefresh" class="mui-content mui-scroll-wrapper">
+            <div class="mui-scroll">
+                <div class="search-form">
+                    <input type="search" class="input-search" placeholder="请输入要搜索商品">
+                    <button type="button" class="mui-btn mui-btn-primary btn-search">搜索</button>
+                </div>
+                <div class="mui-card">
+                    <!--页眉，放置标题-->
+                    <div class="mui-card-header">
+                        <a href="#" data-type="time" data-sort="1">上架时间<i class="fa fa-angle-down"></i></a>
+                        <a href="#" data-type="price" data-sort="1">价格<i class="fa fa-angle-down"></i></a>
+                        <a href="#" data-type="num" data-sort="1">销量<i class="fa fa-angle-down"></i></a>
+                        <a href="#" data-type="discount" data-sort="1">折扣<i class="fa fa-angle-down"></i></a>
+                    </div>
+                    <!--内容区-->
+                    <div class="mui-card-content product-list">
+                        <div class="mui-row">
+                            <div class="mui-col-xs-6">
+                                <div class="product">
+                                    <img src="./images/active5.png" alt="">
+                                    <p class="product-name">李宁闪击篮球鞋驭帅10镭射队尚4男韦德之道空袭中高帮队尚3.5球鞋</p>
+                                    <p class="product-price">
+                                        <span>￥888.88</span>
+                                        <del>￥999.99</del>
+                                    </p>
+                                    <button type="button" class="mui-btn mui-btn-primary product-buy">立即购买</button>
+                                </div>
+                            </div>
+                            <div class="mui-col-xs-6">
+                                <div class="product">
+                                    <img src="./images/active5.png" alt="">
+                                    <p class="product-name">李宁闪击篮球鞋驭帅10镭射队尚4男韦德之道空袭中高帮队尚3.5球鞋</p>
+                                    <p class="product-price">
+                                        <span>￥888.88</span>
+                                        <del>￥999.99</del>
+                                    </p>
+                                    <button type="button" class="mui-btn mui-btn-primary product-buy">立即购买</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </main>
+    <!-- 公共的底部区域 -->
+    <footer id="footer">
+        <!-- mui的栅格和bootstrap一样也是行和列组成 一行最多12列 只有2中屏幕 xs  和 sm  行不需要放容器
+            列 必须放行里面 -->
+        <div class="mui-row">
+            <div class="mui-col-xs-3">
+                <a href="index.html">
+                    <i class="fa fa-home"></i>
+                    <span>首页</span>
+                </a>
+            </div>
+            <div class="mui-col-xs-3">
+                <a href="category.html" class="active">
+                    <i class="fa fa-bars"></i>
+                    <span>分类</span>
+                </a>
+            </div>
+            <div class="mui-col-xs-3">
+                <a href="cart.html">
+                    <i class="fa fa-shopping-cart"></i>
+                    <span>购物车</span>
+                </a>
+            </div>
+            <div class="mui-col-xs-3">
+                <a href="user.html">
+                    <i class="fa fa-user"></i>
+                    <span>个人中心</span>
+                </a>
+            </div>
+        </div>
+    </footer>
+    <script id="productlistTpl" type="text/html">
+        {{each data value}}
+        <div class="mui-col-xs-6">
+            <div class="product">
+                <img src="{{value.pic[0].picAddr}}" alt="">
+                <p class="product-name">{{value.proName}}</p>
+                <p class="product-price">
+                    <span>￥{{value.price}}</span>
+                    <del>￥{{value.oldPrice}}</del>
+                </p>
+                <button type="button" class="mui-btn mui-btn-primary product-buy">立即购买</button>
+            </div>
+        </div>
+        {{/each}}
+    </script>
+
+    <!-- 1. MUI和bootstrap一样 还有JS功能 引入mui.js  但是mui不依赖jquery-->
+    <script src="./lib/mui/js/mui.js"></script>
+    <!-- 导入模板 -->
+    <script src="./lib/zepto/zepto.min.js"></script>
+    <script src="./lib/artTemplate/template-web.js"></script>
+    <!-- 2. 引入首页自己的js文件 -->
+    <script src="./js/productlist.js"></script>
+
+</body>
+
+</html>

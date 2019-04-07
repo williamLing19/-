@@ -40,7 +40,7 @@
                 <!--页眉，放置标题-->
                 <div class="mui-card-header">
                     <span>搜索历史</span>
-                    <span class="fa fa-trash">清空记录</span>
+                    <span class="fa fa-trash btn-clear">清空记录</span>
                 </div>
                 <!--内容区-->
                 <div class="mui-card-content">
@@ -85,12 +85,25 @@
         </div>
     </footer>
     <!-- 将localStorage的数据渲染到页面 -->
+    <!-- <script id="searchTpl" type="text/html">
+        {{if rows.length <= 0}}
+        <li class="mui-table-view-cell">
+            您的搜索记录 空空如也!
+        </li>
+        {{else}}
+        {{each rows value index}}
+        <li class="mui-table-view-cell">
+            <a href="productlist.html?search={{value}}">{{value}}</a>
+            <span data-index="{{index}}" class="mui-badge fa fa-close btn-delete"></span>
+        </li>
+        {{/each}}
+        {{/if}}
+    </script> -->
     <script id="searchTpl" type="text/html">
         {{each rows value index}}
-        <li class="mui-table-view-cell">{{value}}<span class="mui-badge fa fa-close"></span></li>
+        <li class="mui-table-view-cell" >{{value}}<span class="mui-badge fa fa-close btn-delete" data-index="{{index}}"></span></li>
         {{/each}}
     </script>
-
     <!-- 1. MUI和bootstrap一样 还有JS功能 引入mui.js  但是mui不依赖jquery-->
     <script src="./lib/mui/js/mui.js"></script>
     <!-- 导入模板 -->

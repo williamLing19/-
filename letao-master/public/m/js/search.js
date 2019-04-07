@@ -16,15 +16,10 @@ $(function(){
             // localStorage.setItem(search);
             //将内容添加到数组里面,判断是否第一次数组是空,其他为储存的数据
             //将储存的值取出来
-            var json=localStorage.getItem("historySearch");
-            if(json!=null){
-                var arr=JSON.parse(json);
-            }else{
-                var arr=[];
-            }
+            var arr=getHistoryData();
             
             //添加到数组之前先去重,还有判断是否有一致的内容要把内容删除掉
-            arr=uniq(arr);
+            arr=uniq(arr); 
             for(var i=0;i<arr.length;i++){
                 if(search==arr[i]){
                     arr.splice(i,1);
@@ -33,13 +28,71 @@ $(function(){
                 }
             }
             arr.unshift(search);
-            localStorage.setItem("historySearch",JSON.stringify(arr));
+            //设置本地数据
+            setHistoryData(arr);
 
             //6.添加完成后清空输入框
             $(".input-search").val("");
             //7.调用一次不用刷新
             queryHistory();
+            //点击按钮将数据传到需要搜索的页面
+            location="productlist.html?search="+search;
         })
+    }
+    
+//查询的代码
+    function queryHistory(){
+        //将数据渲染到页面
+        var arr=getHistoryData();
+        
+        //调用模板
+        var html=template("searchTpl",{rows:arr});
+        $(".search-history ul").html(html);
+    }
+    //删除的代码
+    function deleteHistory(){
+        //1.给每一个xx点击事件
+        $(".search-history ul").on("tap","li .btn-delete",function(){
+        // 2. 通过当前删除按钮data去获取data-index属性的值
+        var index = $(this).data('index');
+        console.log(index);
+        // 3. 获取本地存储的数组 使用封装这个函数去获取本地存储的数组
+        var arr = getHistoryData();
+        console.log(arr);
+        // 4. 把数组中当前index索引的元素删掉
+        arr.splice(index, 1);
+        console.log(arr);
+        // 5. 删除成功要要存储到本地存储中  使用封装好的函数去设置本地存储的数据
+        setHistoryData(arr);
+        // 6. 删除完成并且存储更新了之后重新渲染
+        queryHistory();
+        })
+    }
+    //清空记录
+    function clearHistory(){
+        $(".btn-clear").on("click",function(){
+            //删除本地数据
+            localStorage.removeItem("historySearch");
+            //重新渲染
+            queryHistory();
+        })
+    }
+    //获取本地数据
+    function getHistoryData(){
+        //将数据渲染到页面
+        var arr=localStorage.getItem("historySearch");
+        // console.log(arr);
+        //判断之前有没有数据
+        if(arr==null){
+            arr=[];
+        }else{
+            arr=JSON.parse(arr);
+        }
+        return arr;
+    }
+    //设置本地数据
+    function setHistoryData(arr){
+        localStorage.setItem("historySearch",JSON.stringify(arr));
     }
     //去重的函数
     function uniq(array) {
@@ -50,26 +103,5 @@ $(function(){
             }
         }
         return temp;
-    }
-//查询的代码
-    function queryHistory(){
-        //将数据渲染到页面
-        var arr=localStorage.getItem("historySearch");
-        // console.log(arr);
-        //判断之前有没有数据
-        if(arr==null){
-            arr=[];
-        }else{
-            arr=JSON.parse(arr);
-        }
-        //调用模板
-        var html=template("searchTpl",{rows:arr});
-        $(".search-history ul").html(html);
-    }
-    function deleteHistory(){
-
-    }
-    function clearHistory(){
-
     }
 })
