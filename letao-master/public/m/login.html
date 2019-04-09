@@ -7,13 +7,13 @@
     <meta name="viewport"
         content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>自写的乐淘移动端主页</title>
+    <title>自写的乐淘移动端登录页面</title>
     <!-- 1. 也要使用一个UI框架 叫MUI 像bootstrap一样引包  引入mui.css -->
     <link rel="stylesheet" href="./lib/mui/css/mui.css">
     <!-- 2. 引入font-awesome字体图标库 -->
     <link rel="stylesheet" href="./lib/fontAwesome/css/font-awesome.css">
     <!-- 3. 引入首页自己的css文件 -->
-    <link rel="stylesheet" href="./less/search.css">
+    <link rel="stylesheet" href="./less/login.css">
 </head>
 
 <body>
@@ -23,35 +23,28 @@
             <a href="#" class="fa fa-arrow-left"></a>
         </div>
         <div class="center">
-            <h4>搜索中心</h4>
+            <h4>登录页面</h4>
         </div>
         <div class="right">
-            
+
         </div>
     </header>
     <!-- 主体内容 -->
     <main id="main">
-        <div class="search-form">
-            <input type="search" class="input-search" placeholder="请输入要搜索商品">
-            <button type="button" class="mui-btn mui-btn-primary btn-search">搜索</button>
-        </div>
-        <div class="search-history">
-            <div class="mui-card">
-                <!--页眉，放置标题-->
-                <div class="mui-card-header">
-                    <span>搜索历史</span>
-                    <span class="fa fa-trash btn-clear">清空记录</span>
-                </div>
-                <!--内容区-->
-                <div class="mui-card-content">
-                    <ul class="mui-table-view">
-                        <li class="mui-table-view-cell">第1项<span class="mui-badge fa fa-close"></span></li>
-                        <li class="mui-table-view-cell">Item 2<span class="mui-badge fa fa-close"></span></li>
-                        <li class="mui-table-view-cell">Item 3<span class="mui-badge fa fa-close"></span></li>
-                    </ul>
-                </div>
+        <form class="mui-input-group">
+            <div class="mui-input-row">
+                <label>用户名</label>
+            <input type="text" class="mui-input-clear username" placeholder="请输入用户名">
             </div>
-        </div>
+            <div class="mui-input-row">
+                <label>密码</label>
+                <input type="password" class="mui-input-password password" placeholder="请输入密码">
+            </div>
+            <div class="mui-button-row">
+                <button type="button" class="mui-btn mui-btn-primary btn-login" >确认</button>
+                <button type="button" class="mui-btn mui-btn-danger btn-register" >取消</button>
+            </div>
+        </form>
     </main>
     <!-- 公共的底部区域 -->
     <footer id="footer">
@@ -84,30 +77,16 @@
             </div>
         </div>
     </footer>
-    <!-- 将localStorage的数据渲染到页面 -->
-    <script id="searchTpl" type="text/html">
-        {{if rows.length <= 0}}
-        <li class="mui-table-view-cell">
-            您的搜索记录 空空如也!
-        </li>
-        {{else}}
-        {{each rows value index}}
-        <li class="mui-table-view-cell">
-            <a href="productlist.html?search={{value}}">{{value}}</a>
-            <span data-index="{{index}}" class="mui-badge fa fa-close btn-delete"></span>
-        </li>
-        {{/each}}
-        {{/if}}
-    </script>
-    
+
+
     <!-- 1. MUI和bootstrap一样 还有JS功能 引入mui.js  但是mui不依赖jquery-->
     <script src="./lib/mui/js/mui.js"></script>
     <!-- 导入模板 -->
     <script src="./lib/zepto/zepto.min.js"></script>
     <script src="./lib/artTemplate/template-web.js"></script>
     <!-- 2. 引入首页自己的js文件 -->
-    <script src="./js/search.js"></script>
-    
+    <script src="./js/login.js"></script>
+
 </body>
 
 </html>

@@ -1,0 +1,157 @@
+h1,
+h2,
+h3,
+h4,
+h5 {
+  margin: 0;
+}
+html {
+  font-size: 26.6667vw;
+}
+body {
+  font-size: .14rem;
+  line-height: .14rem;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+img {
+  vertical-align: middle;
+}
+#header {
+  background-color: #006699;
+  display: flex;
+}
+#header .left {
+  width: .45rem;
+  height: .45rem;
+}
+#header .left a {
+  color: #fff;
+  height: .45rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#header .center {
+  flex: 1;
+}
+#header .center h4 {
+  color: #fff;
+  font-weight: normal;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#header .center form {
+  padding-top: .05rem;
+}
+#header .center form input {
+  background-color: #fff;
+  height: 35px;
+  text-align: left;
+  font-size: .14rem;
+  margin-bottom: 0;
+}
+#header .right {
+  width: .45rem;
+  height: .45rem;
+}
+#header .right a {
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+#header .right a i {
+  color: #fff;
+}
+#main {
+  flex: 1;
+  overflow: hidden;
+  /* 搜索表单的公共样式 */
+}
+#main .mui-scroll-wrapper {
+  position: relative;
+  height: 100%;
+}
+#main .search-form {
+  display: flex;
+  padding: .1rem;
+  height: .54rem;
+}
+#main .search-form input {
+  flex: 1;
+  height: .34rem;
+  border: 1px solid #006699;
+  background-color: #fff;
+  text-align: left;
+  font-size: .14rem;
+  border-radius: .06rem 0px 0px .06rem;
+  margin-bottom: 0;
+}
+#main .search-form button {
+  width: .6rem;
+  height: .34rem;
+  border-radius: 0 .06rem .06rem 0px;
+  background-color: #006699;
+  border-color: #006699;
+  border-left: 0;
+}
+#footer {
+  height: .45rem;
+  background-color: #006699;
+}
+#footer .mui-row > div a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: .45rem;
+  flex-direction: column;
+  color: #fff;
+}
+#footer .mui-row > div a.active {
+  color: #ffa500;
+}
+/* 详情主体部分样式 */
+#main #slider img {
+  max-height: 3rem;
+}
+#main .product-detail .product-name {
+  line-height: .2rem;
+}
+#main .product-detail .product-price span {
+  color: red;
+  font-weight: 600;
+}
+#main .product-detail .product-price del {
+  color: #ccc;
+}
+#main .product-detail .product-size {
+  line-height: .34rem;
+}
+#main .product-detail .product-size .btn-size {
+  margin-bottom: .05rem;
+}
+#main .product-detail .mui-table-view-cell:after {
+  left: 0;
+  background-color: #ccc;
+}
+/* 单独修改商品详情底部样式 */
+#footer {
+  background-color: #ccc;
+}
+#footer .mui-col-xs-2 a {
+  font-size: .2rem;
+}
+#footer .mui-col-xs-2 a::before {
+  color: #666;
+}
+#footer .mui-col-xs-5 {
+  padding: .06rem;
+}
+#footer .mui-col-xs-5 button {
+  width: 100%;
+}

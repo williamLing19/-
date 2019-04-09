@@ -1,0 +1,163 @@
+h1,
+h2,
+h3,
+h4,
+h5 {
+  margin: 0;
+}
+html {
+  font-size: 26.6667vw;
+}
+body {
+  font-size: .14rem;
+  line-height: .14rem;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+img {
+  vertical-align: middle;
+}
+#header {
+  background-color: #006699;
+  display: flex;
+}
+#header .left {
+  width: .45rem;
+  height: .45rem;
+}
+#header .left a {
+  color: #fff;
+  height: .45rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#header .center {
+  flex: 1;
+}
+#header .center h4 {
+  color: #fff;
+  font-weight: normal;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#header .center form {
+  padding-top: .05rem;
+}
+#header .center form input {
+  background-color: #fff;
+  height: 35px;
+  text-align: left;
+  font-size: .14rem;
+  margin-bottom: 0;
+}
+#header .right {
+  width: .45rem;
+  height: .45rem;
+}
+#header .right a {
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+#header .right a i {
+  color: #fff;
+}
+#main {
+  flex: 1;
+  overflow: hidden;
+  /* 搜索表单的公共样式 */
+}
+#main .mui-scroll-wrapper {
+  position: relative;
+  height: 100%;
+}
+#main .search-form {
+  display: flex;
+  padding: .1rem;
+  height: .54rem;
+}
+#main .search-form input {
+  flex: 1;
+  height: .34rem;
+  border: 1px solid #006699;
+  background-color: #fff;
+  text-align: left;
+  font-size: .14rem;
+  border-radius: .06rem 0px 0px .06rem;
+  margin-bottom: 0;
+}
+#main .search-form button {
+  width: .6rem;
+  height: .34rem;
+  border-radius: 0 .06rem .06rem 0px;
+  background-color: #006699;
+  border-color: #006699;
+  border-left: 0;
+}
+#footer {
+  height: .45rem;
+  background-color: #006699;
+}
+#footer .mui-row > div a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: .45rem;
+  flex-direction: column;
+  color: #fff;
+}
+#footer .mui-row > div a.active {
+  color: #ffa500;
+}
+#main ul li a .mui-pull-left img {
+  max-width: .8rem;
+  height: .6rem;
+}
+#main ul li a .mui-pull-left .mui-checkbox {
+  text-align: center;
+  margin-top: .1rem;
+}
+#main ul li a .mui-pull-left .mui-checkbox input {
+  position: static;
+}
+#main ul li a .mui-pull-left .mui-checkbox input::before {
+  font-size: .22rem;
+}
+#main ul li a .mui-media-body {
+  line-height: .24rem;
+}
+#main ul li a .mui-media-body .product-name {
+  white-space: normal;
+}
+#main ul li a .mui-media-body .product-price strong {
+  color: red;
+}
+#main ul li a .mui-media-body .product-price del {
+  color: #ccc;
+}
+#main ul li a .mui-media-body .product-params {
+  display: flex;
+  justify-content: space-between;
+}
+#main ul .mui-table-view-cell:after {
+  left: 0;
+}
+/* 订单区域的样式 */
+#order {
+  display: flex;
+  justify-content: space-between;
+  line-height: .34rem;
+  background-color: #fff;
+  border-top: 1px solid #ccc;
+}
+#order .order-count {
+  padding-left: .2rem;
+  color: red;
+  font-weight: 600;
+}

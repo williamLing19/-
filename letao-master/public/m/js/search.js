@@ -5,7 +5,7 @@ $(function(){
     clearHistory();
     function addHistory(){
         //1.1给每个按钮一个点击事件
-        $(".btn-search").on("click",function(){
+        $(".btn-search").on("tap",function(){
             //1.2 获取input的内容并且去空格
             var search=$(".input-search").val().trim();
             //1.3将内容添加到localSortage
@@ -70,7 +70,7 @@ $(function(){
     }
     //清空记录
     function clearHistory(){
-        $(".btn-clear").on("click",function(){
+        $(".btn-clear").on("tap",function(){
             //删除本地数据
             localStorage.removeItem("historySearch");
             //重新渲染

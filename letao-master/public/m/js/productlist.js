@@ -4,6 +4,7 @@ $(function () {
     nowSearchProduct();
     sortProduct();
     pullRefresh();
+    gotoDetail();
     function searchProduct() {
         //获取url网址search参数的值,
         //1.调用封装好的函数,传入键得到值,
@@ -169,6 +170,21 @@ $(function () {
 
 
     }
+
+
+        // 跳转到商品详情
+        function gotoDetail() {
+            // 1. 给立即购买按钮添加点击事件 动态添加按钮使用委托方式添加
+            $('.product-list').on('tap', '.product-buy', function () {
+                //   2. 获取当前的按钮的身上商品id
+                var id = $(this).data('id');
+                console.log(id);
+                // 3. 跳转到商品详情并且把id传过去
+                location = 'detail.html?id=' + id;
+            });
+        }
+
+    
 
     // 使用正则匹配url参数 返回这个匹配成功的值 根据参数名获取参数的值
     function getQueryString(name) {

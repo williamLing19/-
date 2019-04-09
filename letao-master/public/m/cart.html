@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <!-- 添加视口 -->
+    <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>自写的乐淘移动端购物车</title>
+    <!-- 1. 也要使用一个UI框架 叫MUI 像bootstrap一样引包  引入mui.css -->
+    <link rel="stylesheet" href="./lib/mui/css/mui.css">
+    <!-- 2. 引入font-awesome字体图标库 -->
+    <link rel="stylesheet" href="./lib/fontAwesome/css/font-awesome.css">
+    <!-- 3. 引入自己的css文件 -->
+    <link rel="stylesheet" href="./less/cart.css">
+</head>
+
+<body>
+    <!-- 公共的头部区域 -->
+    <header id="header">
+        <div class="left">
+            <a href="#" class="fa fa-arrow-left"></a>
+        </div>
+        <div class="center">
+            <h4>购物车</h4>
+        </div>
+        <div class="right">
+            <a href="cart.html" class="fa fa-refresh"></a>
+        </div>
+    </header>
+    <!-- 主体内容 -->
+    <main id="main">
+        <div id="pullrefresh" class="mui-content mui-scroll-wrapper">
+            <div class="mui-scroll">
+                <ul class="mui-table-view">
+                    <li class="mui-table-view-cell mui-media">
+                        <a href="javascript:;">
+                            <div class="mui-pull-left">
+                                <img class="mui-media-object" src="./images/active1.png">
+                                <div class="mui-input-row mui-checkbox">
+                                    <input name="checkbox1" value="Item 1" type="checkbox" checked>
+                                </div>
+                            </div>
+
+                            <div class="mui-media-body">
+                                <p class="product-name">匡威三星标1970s converse复刻 142334c 144757c三星标黑色高帮</p>
+                                <div class="product-price">
+                                    <strong>￥888.88</strong>
+                                    <del>￥999.99</del>
+                                </div>
+                                <div class="product-params">
+                                    <div class="product-size">鞋码: <span>50</span> </div>
+                                    <div class="product-num">x <span>1</span> 双</div>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                  
+                
+                   
+                </ul>
+            </div>
+        </div>
+
+    </main>
+    <!-- 订单区域 -->
+    <section id="order">
+        <div class="order-count">
+            订单总额：￥ <span>0.00</span>
+        </div>
+        <button type="button" class="mui-btn mui-btn-danger">生成订单</button>
+    </section>
+    <!-- 公共的底部区域 -->
+    <footer id="footer">
+        <!-- mui的栅格和bootstrap一样也是行和列组成 一行最多12列 只有2中屏幕 xs  和 sm  行不需要放容器
+            列 必须放行里面 -->
+        <div class="mui-row">
+            <div class="mui-col-xs-3">
+                <a href="index.html">
+                    <i class="fa fa-home"></i>
+                    <span>首页</span>
+                </a>
+            </div>
+            <div class="mui-col-xs-3">
+                <a href="category.html">
+                    <i class="fa fa-bars"></i>
+                    <span>分类</span>
+                </a>
+            </div>
+            <div class="mui-col-xs-3">
+                <a href="cart.html" class="active">
+                    <i class="fa fa-shopping-cart"></i>
+                    <span>购物车</span>
+                </a>
+            </div>
+            <div class="mui-col-xs-3">
+                <a href="user.html">
+                    <i class="fa fa-user"></i>
+                    <span>个人中心</span>
+                </a>
+            </div>
+        </div>
+    </footer>
+    <script id="cartTpl" type="text/html">
+        {{each data value}}
+        <li class="mui-table-view-cell mui-media">
+                <a href="javascript:;">
+                    <div class="mui-pull-left">
+                        <img class="mui-media-object" src="{{value.pic[0].picAddr}}">
+                        <div class="mui-input-row mui-checkbox">
+                            <input name="checkbox1" value="Item 1" type="checkbox" checked>
+                        </div>
+                    </div>
+
+                    <div class="mui-media-body">
+                        <p class="product-name">{{value.proName}}</p>
+                        <div class="product-price">
+                            <strong>￥{{value.price}}</strong>
+                            <del>￥{{value.oldPrice}}</del>
+                        </div>
+                        <div class="product-params">
+                            <div class="product-size">鞋码: <span>{{value.productSize}}</span> </div>
+                            <div class="product-num">x <span>{{value.productNum}}</span> 双</div>
+                        </div>
+                    </div>
+                </a>
+            </li>
+            {{/each}}
+    </script>
+    <!-- 1. MUI和bootstrap一样 还有JS功能 引入mui.js  但是mui不依赖jquery-->
+    <script src="./lib/mui/js/mui.js"></script>
+    <!-- 2. 引入zepto 帮助我们获取元素和ajax请求 -->
+    <script src="./lib/zepto/zepto.min.js"></script>
+    <!-- 3. 引入模板引擎的js artTemplate-web最新版-->
+    <script src="./lib/artTemplate/template-web.js"></script>
+    <!-- 4. 引入自己的js文件 -->
+    <script src="./js/cart.js"></script>
+</body>
+
+</html>
